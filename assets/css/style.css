@@ -1,0 +1,81 @@
+h1 {
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+h2 {
+    font-weight: 200;
+    margin-top: 10px;
+}
+.container {
+    position: relative;
+    text-align: center;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 35px;
+    
+}
+
+.circle {
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+}
+
+.circle1{
+    height: 500px;
+    width: 500px;
+    background-color: #009fe3;
+}
+.circle2 {
+    height: 400px;
+    width: 400px;
+    background-color: #445261;
+    left: 50px;
+    top: 50px;
+}
+.circle3 {
+    height: 300px;
+    width: 300px;
+    background-color: #EFB920;
+    left:100px;
+    top: 100px;
+}
+.circle4{
+    height: 200px;
+    width: 200px;
+    background-color: #23BBBB;
+    top: 150px;
+    right: 150px;
+}
+
+.scorebox {
+    box-sizing: border-box;
+    border-radius: 25%;
+    background-color: #E6Ecf0;
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    top: 210px;
+    left: 210px;
+    color: #445261;
+    font-size: 3em;
+    padding-top: 10px;
+}
+
+.button {
+    background-color: #ff5a60;
+    width: 160px;
+    height: 40px;
+    color: #fff;
+    margin: 0 auto;
+    position: relative;
+    top: 550px;
+    border-radius: 5px;
+    border: 0;
+    font-weight: 600;
+}
+
+.light {
+    opacity: 0.4;
+}
