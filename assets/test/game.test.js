@@ -1,5 +1,9 @@
 
-const {game,newGame,showScore,addTurn,lightsOn,showTurn} = require("../js/game");
+const {game,newGame,showScore,addTurn,lightsOn,showTurn,playerTurn} = require("../js/game");
+
+jest.spyOn(window,"alert").mockImplementation(()=>{
+
+});
 
 beforeAll(()=>{
     let fs = require("fs");
@@ -28,6 +32,10 @@ describe("game object contains correct key",()=>{
     
     test("turnNumber key exist",()=>{
         expect("turnNumber" in game).toBe(true);
+    });
+
+    test("isProgress key exist",()=>{
+        expect("isProgress" in game).toBe(true);
     });
 });
 
@@ -97,4 +105,27 @@ describe("Game play works correctly",()=>{
             expect(circle.getAttribute("data-listener")).toEqual("true");
         }
     })
+
+    test("if player turns matchs computer turn then score should increase",()=>{
+       game.playerMoves.push(game.currentGame[0]);
+       playerTurn();
+       expect(game.score).toEqual(1); 
+    });
+
+    test("if player moves wrong then display an alert",()=>{
+        game.playerMoves.push("wron");
+        playerTurn();
+        expect(window.alert).toBeCalledWith("Wrong move!");
+    });
+
+    test("if computer turn in progress, toggle isprogress ",()=>{
+        showTurn();
+        expect(game.isProgress).toBe(true);
+    });
+
+    test("if computer turn in progress, disable user turn",()=>{
+        showTurn();
+        expect(game.playerMoves.length).toBe(0);
+    });
+
 });
